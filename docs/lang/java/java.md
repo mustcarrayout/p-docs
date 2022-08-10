@@ -1,20 +1,61 @@
 
+
 # java知识体系
-
-## 基础知识
-
-* 文件结构
-  - 访问性
-* 数据类型
-  - 值类型
-  - 引用类型
-* 网络io
-* 文件io
-* 多线程
-* 异常
-
+- ## 基础知识
+	- 文件结构
+		- 访问性
+		- 数据类型
+			- 集合类型
+			- 值类型
+			- 引用类型
+		- io
+			- 网络io
+			- 文件io
+		- 多线程
+		- 异常
+			- Throwable
+				- Error
+					- 不是程序可以控制的,直接宕机
+				- Exception
+					- runtime exception可以catch,又名非检查异常(Unchecked Exception)
+						- 可以build success,但是run的时候可以try.
+						- 经典实例
+							- NullPointerException null
+							- IndexOutOfBoundsException 数组越界
+							- ClassCastException 类型转换错误
+							- ArithmeticException 算术异常
+							- OutofMemoryException 堆栈溢出
+								- --Xmx
+								- --Xms
+					- no runtime exception,又名检查异常(Checked Exception)
+						- 如果不处理，程序就不能编译通过.
+						- 经典实例
+							- IOException
+							- ClassNotFoundException
+							- 用户自定义Exception类型
+			- 返回值的次序问题
+				- try -> finally
+				- try -> finally -> catch
+				- try -> catch
 ### 语言概念
-
 ### 语言进阶
-
+	- JVM
+	- 线程
+	- 网络与io
+	- 语法糖
 ### 语言应用
+	- 常用的工具类
+		- [Apache Common](https://commons.apache.org/)
+			- Commons BeanUtils
+			- Commons Codec
+			- Commons Collections
+			- Commons Compress
+			- Commons FileUpload
+			- Commons IO
+			- Commons Lang3
+				- java.lang.*的加强包
+-
+- 项目实践
+	- Tomcat与arthas
+		- 利用Archas的aop能力排查tomcat容器中的服务慢问题;
+		- https://blog.csdn.net/Armour__r/article/details/109733038
