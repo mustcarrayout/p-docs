@@ -59,3 +59,15 @@
 	- Tomcat与arthas
 		- 利用Archas的aop能力排查tomcat容器中的服务慢问题;
 		- https://blog.csdn.net/Armour__r/article/details/109733038
+	- @Deprecated
+		```java
+			@Deprecated
+			public void method1() {
+
+			}
+		```
+	- hprof是什么文件？
+		- 是java进程的内存镜像文件，里面包含了内存堆详细的使用信息。
+		- 在 java 中，hprof 文件有2部分组成，一部分是 hprof head，一部分是 hprof body。其中 head 比较简单，由版本号，IDSize和时间组成。
+	- [word转pdf异常之小括号](https://blog.csdn.net/u012998306/article/details/124803061)
+	- [java call cmd](https://www.cnblogs.com/youmiyou/p/15779230.html)
