@@ -132,6 +132,30 @@ public class DefaultSqlSession implements SqlSession {
 4. 四大金刚的关系是如何的?
 
 ```java
+public class Configuration {
+  // 常见 Executor
+  public Executor newExecutor(Transaction transaction, ExecutorType executorType) {
+    executorType = executorType == null ? defaultExecutorType : executorType;
+    executorType = executorType == null ? ExecutorType.SIMPLE : executorType;
+    Executor executor;
+    if (ExecutorType.BATCH == executorType) {
+      executor = new BatchExecutor(this, transaction);
+    } else if (ExecutorType.REUSE == executorType) {
+      executor = new ReuseExecutor(this, transaction);
+    } else {
+      executor = new SimpleExecutor(this, transaction);
+    }
+    if (cacheEnabled) {
+      executor = new CachingExecutor(executor);
+    }
+    executor = (Executor) interceptorChain.pluginAll(executor);
+    return executor;
+  }
+}
+```
+
+
+```java
 public interface Executor {
   // 结果集
   ResultHandler NO_RESULT_HANDLER = null;
@@ -147,10 +171,10 @@ public interface Executor {
   boolean isCached(MappedStatement ms, CacheKey key);
   // mybatis的事务,不是jdbc的.
   Transaction getTransaction();
-}  
+}
+// Executor => final Executor executor = configuration.newExecutor(tx, execType);
+// 默认 => executor = new SimpleExecutor(this, transaction);
 ```
-
-
 
 ```java
 
