@@ -71,3 +71,57 @@
 		- 在 java 中，hprof 文件有2部分组成，一部分是 hprof head，一部分是 hprof body。其中 head 比较简单，由版本号，IDSize和时间组成。
 	- [word转pdf异常之小括号](https://blog.csdn.net/u012998306/article/details/124803061)
 	- [java call cmd](https://www.cnblogs.com/youmiyou/p/15779230.html)
+
+## 动态代理
+
+```java
+public interface Person {
+	void rentHouse();
+}
+
+public class Renter implements Person {
+	@Override
+	public void rentHouse() {
+		System.out.println("rent success");
+	}
+}
+
+public class RenterInvocationHandle<T> implements InvocationHandler {
+	
+	private T target;
+
+	public RenterInvocationHandle(T target) {
+		this.target = target;
+	}
+
+	/**
+	 *
+	 * 1. 代表动态代理对象
+	 * 2. 要执行的方法
+	 * 3. 入参
+	 **/ 
+	@Overrider
+	public Object invoke(Object proxy, Method method, Object[] args) 
+		throws Throwable {
+
+			Object result = method.invoke(target, args);
+
+			return result;
+	}
+}
+
+public class Main {
+
+	public void static main(String[] args) {
+		Person person = new Renter();
+		InvocationHandler renterHandler = new InvocationHandler<Person>(person);
+
+		InvocationHandler invoke = (Person)InvocationHandler.newProxyInstance(Person.class.getClassLoader(),new Class<?>[]{Person.class}, renterHandler); 
+
+		Class<?>
+
+	}
+
+}
+
+```
