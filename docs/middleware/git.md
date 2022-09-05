@@ -19,9 +19,7 @@
 2. .gitignore配置文件是按行从上到下进行规则匹配的
 3. 该文件会影响repo的所有人，如果只是个人习惯问题建议操作**.git/info/exclude**，语法和效果一样的
 
-```
 
-```
 
 ## git操作
 
@@ -50,28 +48,28 @@
 - 设置邮箱
 - 一个客户端设置多个用户
 - ```shell
-git config --global user.name what
-git config --global user.emial what
+  git config --global user.name what
+  git config --global user.emial what
 
-# 
-ssh-keygen -t rsa -C "demo@126.com" -b 4096 -f demo
+  # 
+  ssh-keygen -t rsa -C "demo@126.com" -b 4096 -f demo
 
-# ssh-copy-id -i demo.pub user@server
-# copy content
-pbcopy < ~/.ssh/demo.pub
+  # ssh-copy-id -i demo.pub user@server
+  # copy content
+  pbcopy < ~/.ssh/demo.pub
 
-ssh-add ~/.ssh/demo
+  ssh-add ~/.ssh/demo
 
-vim ~/.ssh/config
+  vim ~/.ssh/config
 
-Host gitee.com
-HostName gitee.com
-User git
-PreferredAuthentications publickey
-Port 22
-IdentityFile ~/.ssh/demo
-  
-```
+  Host gitee.com
+  HostName gitee.com
+  User git
+  PreferredAuthentications publickey
+  Port 22
+  IdentityFile ~/.ssh/demo
+    
+  ```
 
 ### 养成良好的习惯
 
@@ -154,3 +152,15 @@ git checkout --file
 git checkout .
 ```
 
+### 分支问题
+
+```shell
+# 上传远程(相当于merge到远程最前端)
+git push --set-upstream origin local_branch:remote_branch
+# 从远程拉取分支到本地
+git checkout -b develop origin/develop
+# 默认推送
+git push origin :xxx
+# 删除远程分支
+git push origin --delete xxx
+```
