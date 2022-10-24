@@ -150,6 +150,12 @@ git checkout HEAD file
 git checkout --file
 #
 git checkout .
+# 将分支并入到当前分支,默认全部commit保留(如果超前会abort)
+git merge dev
+# 将分支并入到当前分支,默认全部commit保留,并且不考虑fast-forward
+git merge dev --no-diff
+# 将分支并入当前分支,并且新创建一个commit,作为新的commit,相当于压缩dev的commit记录
+git merge dev --squash
 ```
 
 ### 分支问题
@@ -159,8 +165,8 @@ git checkout .
 git push --set-upstream origin local_branch:remote_branch
 # 从远程拉取分支到本地
 git checkout -b develop origin/develop
-# 默认推送
-git push origin :xxx
+# 默认推送(获取创建一个新分支,没有的话创建有的话追加)
+git push origin mater
 # 删除远程分支
 git push origin --delete xxx
 ```

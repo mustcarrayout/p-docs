@@ -1,48 +1,36 @@
-
+[TOC]
 
 # java知识体系
-- ## 基础知识
-	- 文件结构
-		- 访问性
-		- 数据类型
-			- 集合类型
-			- 值类型
-			- 引用类型
-		- io
-			- 网络io
-			- 文件io
-		- 多线程
-		- 异常
-			- Throwable
-				- Error
-					- 不是程序可以控制的,直接宕机
-				- Exception
-					- runtime exception可以catch,又名非检查异常(Unchecked Exception)
-						- 可以build success,但是run的时候可以try.
-						- 经典实例
-							- NullPointerException null
-							- IndexOutOfBoundsException 数组越界
-							- ClassCastException 类型转换错误
-							- ArithmeticException 算术异常
-							- OutofMemoryException 堆栈溢出
-								- --Xmx
-								- --Xms
-					- no runtime exception,又名检查异常(Checked Exception)
-						- 如果不处理，程序就不能编译通过.
-						- 经典实例
-							- IOException
-							- ClassNotFoundException
-							- 用户自定义Exception类型
-			- 返回值的次序问题
-				- try -> finally
-				- try -> finally -> catch
-				- try -> catch
-### 语言概念
-### 语言进阶
-	- JVM
-	- 线程
-	- 网络与io
-	- 语法糖
+  
+## 基础知识
+
+* 命名规范
+* 数据类型
+* 基础结构(package、class、method、property)
+* 数据类型
+  * 基础类型与包装类型
+    * 比较
+  * 字符串
+  * 引用类型vs值类型
+    * 类(Object,枚举,畸形类)
+    * 接口
+  * 泛型
+* 集合
+  * 线程安全集合
+* 异常
+  * Throwable
+    * Error
+    * Exception
+      * RuntimeException(Unchecked Exception)
+        * NullPointerException
+        * IndexOutOfBoundsException
+        * ClassCastException
+        * OutofMemoryException(xms xmx)
+      * Checked Exception(编译报错)	
+        * ClassNotFoundException
+        * IOException
+
+
 ### 语言应用
 	- 常用的工具类
 		- [Apache Common](https://commons.apache.org/)

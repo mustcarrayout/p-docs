@@ -1,5 +1,17 @@
 # SQL
 
+## lock
+```sql
+select 
+request_session_id spid,                             -- （死锁进程id）
+OBJECT_NAME(resource_associated_entity_id) tableName -- （死锁进程名称）
+from sys.dm_tran_locks 
+where resource_type='OBJECT';
+
+-- kill pid
+
+```
+
 ## sqlserver
 ### 行列倒置
 
